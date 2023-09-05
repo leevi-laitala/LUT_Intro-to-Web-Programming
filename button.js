@@ -1,4 +1,5 @@
 function buttonMoiMaailma() {
+    console.log("hello world")
     const titleText = document.getElementById("title")
     titleText.innerHTML = "Moi maailma"
 }
