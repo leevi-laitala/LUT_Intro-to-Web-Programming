@@ -1,32 +1,15 @@
-function buttonMoiMaailma() {
-    console.log("hello world")
-    const titleText = document.getElementById("title")
-    titleText.innerHTML = "Moi maailma"
-}
-
-function buttonAppendText()
-{
-    const list = document.getElementById("list")
-    const customtext = document.getElementById("customtext")
-    const newli = document.createElement("li")
-
-    newli.innerHTML = customtext.value
-
-    list.appendChild(newli)
-
-}
-
 function buttonSubmit()
 {
     const formUsername = document.getElementById("input-username")
     const formEmail = document.getElementById("input-email")
     const formIsAdmin = document.getElementById("input-admin")
     const table = document.getElementById("table")
+    const avatar = document.getElementById("input-image")
 
     var newrow = null
     for (var i = 1; i < table.rows.length; i++)
     {
-        var user = table.rows[i].cells[0].innerHTML
+        var user = table.rows[i].cells[1].innerHTML
         
         if (user == formUsername.value)
         {
@@ -42,19 +25,38 @@ function buttonSubmit()
 
     if (!newrow.cells.length)
     {
-        var username = newrow.insertCell(0)
-        var email = newrow.insertCell(1)
-        var admin = newrow.insertCell(2)
+        newrow.insertCell(0)
+        me = newrow.insertCell(1)
+        = newrow.insertCell(2)
+        = newrow.insertCell(3)
     }
 
-    newrow.cells[0].innerHTML = formUsername.value
-    newrow.cells[1].innerHTML = formEmail.value
-    newrow.cells[2].innerHTML = (formIsAdmin.checked) ? "X" : "-"
+    var newavatar = document.createElement("img")
+    newavatar.height = 64
+    newavatar.width = 64
 
-    //username.innerHTML = formUsername.value
-    //email.innerHTML = formEmail.value
+    const reader = new FileReader()
+    reader.onload = (function(image)
+        {
+            return function(e)
+            {
+                image.src = e.target.result
+            }
+        })(newavatar)
 
-    //admin.innerHTML = (formIsAdmin.checked) ? "X" : "-"
+    reader.readAsDataURL(avatar.files[0])
+
+    if (newrow.cells[0].innerHTML)
+    {
+        //newrow.cells[0] = newavatar
+        newrow.cells[0].remove()
+        newrow.insertCell(0)
+    }
+
+    newrow.cells[0].appendChild(newavatar)
+    newrow.cells[1].innerHTML = formUsername.value
+    newrow.cells[2].innerHTML = formEmail.value
+    newrow.cells[3].innerHTML = (formIsAdmin.checked) ? "X" : "-"
 }
 
 function clearTable()

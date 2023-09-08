@@ -8,32 +8,37 @@
         <textarea rows="1" cols="20" id="input-username">Username</textarea>
         <textarea rows="1" cols="20" id="input-email">Email</textarea>
         <input type="checkbox" name="Admin" value="" id="input-admin">
+        <input type="file" name="Avatar" value="" id="input-image" accept="image/*">
         <button type="button" id="submit-data" onclick="buttonSubmit()">Submit</button>
 
         <table id="table">
             <tr>
+                <th>Avatar</th>
                 <th>Username</th>
                 <th>Email</th>
                 <th>Admin</th>
             </tr>
             <tr>
+                <td><img src="default.jpg" alt="Avatar" style="width:64px;height:64px;"></td>
                 <td>Webmaster</td>
                 <td>webmaster@email.com</td>
                 <td>X</td>
             </tr>
             <tr>
+                <td><img src="default.jpg" alt="Avatar" style="width:64px;height:64px;"></td>
                 <td>User123</td>
                 <td>user123@email.com</td>
                 <td>-</td>
             </tr>
             <tr>
+                <td><img src="default.jpg" alt="Avatar" style="width:64px;height:64px;"></td>
                 <td>AnotherUser222</td>
                 <td>anotheruser222@email.com</td>
                 <td>-</td>
             </tr>
         </table>
         
-        <button type="button" id="clear-data" onclick="clearTable()">Clear Table</button>
+        <button type="button" id="empty-table" onclick="clearTable()">Clear Table</button>
     </body>
     
     <script src="formhandler.js" defer></script>
