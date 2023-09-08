@@ -1,28 +1,40 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Week 1</title>
+        <title>Week 2</title>
     </head>
 
     <body>
-        <h1 id=title>
-            Hello world!
-        </h1>
+        <textarea rows="1" cols="20" id="input-username">Username</textarea>
+        <textarea rows="1" cols="20" id="input-email">Email</textarea>
+        <input type="checkbox" name="Admin" value="" id="input-admin">
+        <button type="button" id="submit-data" onclick="buttonSubmit()">Submit</button>
 
-        <button id=my-button onclick="buttonMoiMaailma()">
-            Yeah dude!
-        </button>
-
-        <button id=add-data onclick="buttonAppendText()">
-            Test
-        </button>
-
-
-        <ul id="list">
-        </ul>
+        <table id="table">
+            <tr>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Admin</th>
+            </tr>
+            <tr>
+                <td>Webmaster</td>
+                <td>webmaster@email.com</td>
+                <td>X</td>
+            </tr>
+            <tr>
+                <td>User123</td>
+                <td>user123@email.com</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td>AnotherUser222</td>
+                <td>anotheruser222@email.com</td>
+                <td>-</td>
+            </tr>
+        </table>
+        
+        <button type="button" id="clear-data" onclick="clearTable()">Clear Table</button>
     </body>
-
-    <textarea rows="1" cols="50" id=customtext>Hassutext</textarea>
-
-    <script src="button.js" defer></script>
+    
+    <script src="formhandler.js" defer></script>
 </html>
