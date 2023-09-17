@@ -44,13 +44,19 @@ function buttonSubmit()
             }
         })(newavatar)
 
-    reader.readAsDataURL(avatar.files[0])
-
-    if (newrow.cells[0].innerHTML)
+    if (avatar.files[0])
     {
-        //newrow.cells[0] = newavatar
-        newrow.cells[0].remove()
-        newrow.insertCell(0)
+        reader.readAsDataURL(avatar.files[0])
+
+        if (newrow.cells[0].innerHTML)
+        {
+            //newrow.cells[0] = newavatar
+            newrow.cells[0].remove()
+            newrow.insertCell(0)
+        }
+    } else
+    {
+        newavatar.src = "default.jpg"
     }
 
     newrow.cells[0].appendChild(newavatar)
