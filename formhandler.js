@@ -26,9 +26,9 @@ function buttonSubmit()
     if (!newrow.cells.length)
     {
         newrow.insertCell(0)
-        me = newrow.insertCell(1)
-        = newrow.insertCell(2)
-        = newrow.insertCell(3)
+        newrow.insertCell(1)
+        newrow.insertCell(2)
+        newrow.insertCell(3)
     }
 
     var newavatar = document.createElement("img")
