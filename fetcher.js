@@ -1,4 +1,4 @@
-const fetchData = document.getElementById("submit")
+const fetchData = document.getElementById("submit-data")
 fetchData.addEventListener('click', async(event) => 
 {
     event.preventDefault()
