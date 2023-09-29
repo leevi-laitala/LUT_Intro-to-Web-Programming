@@ -16,7 +16,6 @@ body {
     padding: 10px;
     border-radius: 6px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    display: flex;
 }
 
 .show-data h1 {
@@ -29,10 +28,19 @@ body {
 
 .show-info {
     width: 100%;
-    padding: 10px;
 }
 
 @media (min-width: 800px) {
+    .show-data {
+        display: flex;
+    }
+
+    .show-info {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 800px) {
     .show-data img {
         margin: auto;
     }
