@@ -1,25 +1,23 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Week 3</title>
+        <title>Week 4</title>
         <link rel="stylesheet" href="styles.css">
     </head>
 
     <body>
-        <div class="center">
-            <table>
-                <h1>Municipality employment statistics in Finland</h1>
-                <thead>
-                    <th>Municipality</th>
-                    <th>Population</th>
-                    <th>Employment</th>
-                    <th>Employment-%</th>
-                </thead>
-                <tbody id="tablebody">
-                </tbody>
-            </table>
-        </div>
+        <nav class="navbar">
+            <div class="info-container">
+                <form id="info-form">
+                    <label for="input-show">Enter show name</label>
+                    <input type="text" id="input-show">
+                    <button id="submit">Submit</button>
+                </form>
+            </div>
+        </nav>
+
+        <div class="show-container"></div>
     </body>
 
-    <script src="dataparse.js" defer></script>
+    <script src="fetcher.js" defer></script>
 </html>

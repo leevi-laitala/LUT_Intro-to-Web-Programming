@@ -1,41 +1,44 @@
 body {
-    font-family: "Verdana, Arial, sans-serif";
+    background-color: #eceff1;
 }
 
-td {
-    padding: 6px;
-    border-bottom: 1px solid gray;
+.show-container {
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
-tbody tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
-
-tbody tr:nth-child(odd) {
-    background-color: #ffffff;
-}
-
-th {
-    background-color: #b7d0ff;
-    font: bold;
-    padding: 12px 0px 12px 6px;
-    border-bottom: 2px solid gray;
-}
-
-table {
-    border-collapse: collapse;
-    font-size: 16px;
-    text-align: left;
-    table-layout: fixed;
+.show-data {
     width: 100%;
+    background-color: #cfd8dc;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    display: flex;
 }
 
-.center {
-    margin: auto;
-    padding: 60px;
-    width: 60%;
-}
-
-h1 {
+.show-data h1 {
     text-align: center;
 }
+
+.show-data img {
+    display: block;
+}
+
+.show-info {
+    width: 100%;
+    padding: 10px;
+}
+
+@media (min-width: 800px) {
+    .show-data img {
+        margin: auto;
+    }
+
+    .show-data p {
+        text-align: center;
+        padding: 10px;
+    }
+}
+
