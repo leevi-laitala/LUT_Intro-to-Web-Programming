@@ -10,8 +10,15 @@ fetchData.addEventListener('click', async(event) =>
     const url = "https://api.tvmaze.com/search/shows?q=" + name
     const shows = await fetch(url)
 
+    clearShowList()
     populateList(await shows.json())
 })
+
+function clearShowList()
+{
+    let list = document.querySelector(".show-container")
+    list.innerHTML = ""
+}
 
 function populateList(arr)
 {
