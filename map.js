@@ -1,3 +1,16 @@
+// Resources that helped with this assignment:
+//
+// Example code from this course
+// https://version.lab.fi/Erno.Vanhala/itwp-week-5/-/blob/main/demo6-leaflet/js/code.js?ref_type=heads
+//
+// Official documentation
+// https://leafletjs.com/reference.html
+//
+// Multiple value function return
+// https://stackoverflow.com/questions/2917175/return-multiple-values-in-javascript
+
+
+// Fetch migration data, both negative and positive, and return json from .dataset
 async function fetchMigrationData()
 {
     const posUrl = "https://statfin.stat.fi/PxWeb/sq/4bb2c735-1dc3-4c5e-bde7-2165df85e65f"
@@ -15,6 +28,7 @@ async function fetchMigrationData()
     return [posData, negData]
 }
 
+// Initialize and populate map
 async function initMap()
 {
     let map = L.map('map', { minZoom: -3 })
@@ -29,6 +43,7 @@ async function initMap()
                 if (!feature.properties.name) { return }
                 const name = feature.properties.name 
 
+                // First fetch the index for municipality, then match value for given index
                 let index = migData[0].dimension.Tuloalue.category.index["KU" + feature.properties.kunta]
                 let pos = migData[0].value[index]
                 let neg = migData[1].value[index]
@@ -44,6 +59,7 @@ async function initMap()
                 let pos = migData[0].value[index]
                 let neg = migData[1].value[index]
 
+                // Calculate color, and cap hue at 120
                 let color = (pos / neg) ** 3 * 60
                 color = (color < 120) ? color : 120
 
@@ -53,7 +69,9 @@ async function initMap()
             }
         }).addTo(map)
     
-    let openstreetmap = L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {}).addTo(map)
+    let openstreetmap = L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        attribution: "© OpenStreetMap"
+    }).addTo(map)
 
     map.fitBounds(geoJson.getBounds())
 
@@ -68,19 +86,5 @@ async function fetchGeoData()
 
     return data
 }
-
-//function getFeature(feature, layer)
-//{
-//    if (!feature.properties.name) { return }
-//
-//    console.log(migData)
-//
-//    const name = feature.properties.name 
-//    layer.bindPopup(
-//        `Moromoro`
-//    )
-//    //layer.bindTooltip(name)
-//    layer.bindTooltip(migData["KU" + feature.properties.kunta])
-//}
 
 document.addEventListener("DOMContentLoaded", initMap)
