@@ -1,0 +1,19 @@
+table {
+    font-size: 24px;
+    width: 100%;
+    text-align: left;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+h1 {
+    font-size: 48px;
+}
+
+tr:first-child td {
+    background-color: #5add5f; 
+}
+
+td {
+    padding: 8px;
+}
